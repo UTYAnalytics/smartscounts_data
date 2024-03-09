@@ -1,3 +1,5 @@
+name: Run Selenium On GitHub Action
+
 on:
   workflow_dispatch:
   schedule:
@@ -19,7 +21,6 @@ jobs:
       - name: Installing dependencies
         run: |
           pip install -r requirements.txt
-
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Download and install Google Chrome
@@ -27,6 +28,5 @@ jobs:
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo dpkg -i google-chrome-stable_current_amd64.deb
           sudo apt-get -f install
-
       - name: Running the bundle_smartscounts script
         run: python bundle_smartscounts.py
