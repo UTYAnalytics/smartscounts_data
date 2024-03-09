@@ -280,8 +280,8 @@ for subset in brand_product_list:
         current_time_gmt7 = current_utc_time + gmt7_offset
         if newest_file_path:
             data = pd.read_csv(newest_file_path)
-            data["sys_run_date"] = current_time_gmt7.strftime("%Y-%m-%d %H:%M:%S")
-            # data["sys_run_date"] = sys_run_date
+            # data["sys_run_date"] = current_time_gmt7.strftime("%Y-%m-%d %H:%M:%S")
+            data["sys_run_date"] = sys_run_date.strftime("%Y-%m-%d %H:%M:%S")
             # Proceed with the database insertion
         else:
             print("No files found in the specified directory.")
