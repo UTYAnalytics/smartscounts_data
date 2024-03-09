@@ -92,9 +92,10 @@ cursor = conn.cursor()
 
 # Execute the SQL query to retrieve distinct seller_id from the "best_seller_keepa" table
 query = """
-SELECT distinct sys_run_date,asin
-    FROM products_smartscount 
-    where sys_run_date=(select max(sys_run_date) from products_smartscount)
+SELECT distinct a.sys_run_date,a.asin
+    FROM products_smartscount a left join 
+    (select distinct sys_run_date,asin from products_relevant_smartscounts) b on a.asin=b.asin and a.sys_run_date=b.sys_run_date
+    where a.sys_run_date=(select max(sys_run_date) from products_smartscount)
 """
 
 cursor.execute(query)
