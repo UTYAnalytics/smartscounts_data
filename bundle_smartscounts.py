@@ -42,10 +42,10 @@ email_address = "uty.tra@thebargainvillage.com"
 email_password = "kwuh xdki tstu vyct"
 subject_filter = "Keepa.com Account Security Alert and One-Time Login Code"
 
-display = Display(visible=0, size=(800, 800))
-display.start()
+# display = Display(visible=0, size=(800, 800))
+# display.start()
 
-chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
+# chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
 
 # Create a temporary directory for downloads
 with tempfile.TemporaryDirectory() as download_dir:
