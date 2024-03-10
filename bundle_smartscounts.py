@@ -61,12 +61,6 @@ with tempfile.TemporaryDirectory() as download_dir:
     options = [
         # Define window size here
         "--ignore-certificate-errors",
-        # "--headless",
-        "--disable-gpu",
-        "--disable-extensions",
-        "--no-sandbox",
-        "--disable-dev-shm-usage",
-        "--remote-debugging-port=9222",
     ]
     chrome_options.add_experimental_option("prefs", prefs)
     for option in options:
