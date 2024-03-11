@@ -42,10 +42,10 @@ email_address = "uty.tra@thebargainvillage.com"
 email_password = "kwuh xdki tstu vyct"
 subject_filter = "Keepa.com Account Security Alert and One-Time Login Code"
 
-display = Display(visible=0, size=(800, 800))
-display.start()
+# display = Display(visible=0, size=(800, 800))
+# display.start()
 
-chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
+# chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
 
 # Create a temporary directory for downloads
 with tempfile.TemporaryDirectory() as download_dir:
@@ -61,12 +61,7 @@ with tempfile.TemporaryDirectory() as download_dir:
     options = [
         # Define window size here
         "--ignore-certificate-errors",
-        # "--headless",
-        "--disable-gpu",
-        "--disable-extensions",
-        "--no-sandbox",
-        "--disable-dev-shm-usage",
-        "--remote-debugging-port=9222",
+        "--headless=new"
     ]
     chrome_options.add_experimental_option("prefs", prefs)
     for option in options:
@@ -181,8 +176,8 @@ for subset in brand_product_list:
     # Open Keepa
     driver.get("https://app.smartscout.com/sessions/signin")
 
-    wait = WebDriverWait(driver, 2000000)
-
+    wait = WebDriverWait(driver, 20)
+    print("login")
     # Login process
     try:
         username_field = wait.until(
@@ -197,7 +192,7 @@ for subset in brand_product_list:
     except Exception as e:
         # raise Exception
         print("Error during login:", e)
-
+    print("searchterm")
     # Navigate to the seller
     try:
         element = WebDriverWait(driver, 10).until(
