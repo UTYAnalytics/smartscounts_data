@@ -204,7 +204,7 @@ for subset in brand_product_list:
         print("scroll")
         element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located(
-                (By.ID, "navSearchTerms")
+                (By.XPATH, '//*[@id="navSearchTerms"]')
             )  # Replace "element_id" with the actual ID of the element
         )
         driver.execute_script("arguments[0].scrollIntoView();", element)
