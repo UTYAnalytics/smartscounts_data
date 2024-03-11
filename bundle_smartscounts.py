@@ -66,6 +66,7 @@ with tempfile.TemporaryDirectory() as download_dir:
         "--disable-gpu",
         "--no-sandbox",
         "--disable-dev-shm-usage",
+        "--window-size=1920,1080",
     ]
     chrome_options.add_experimental_option("prefs", prefs)
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -211,7 +212,7 @@ for subset in brand_product_list:
         driver.execute_script("arguments[0].scrollIntoView();", element)
         print("searchtermbutton")
         searchterm_button = wait.until(
-            EC.visibility_of_element_located((By.XPATH, '//*[@id="navSearchTerms"]'))
+            EC.element_to_be_clickable((By.XPATH, '//*[@id="navSearchTerms"]'))
         )
         print("searchtermbutton_click")
         searchterm_button.click()
