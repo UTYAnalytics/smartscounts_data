@@ -96,6 +96,7 @@ SELECT distinct a.sys_run_date,a.asin
     FROM products_smartscount a left join 
     (select distinct sys_run_date,asin from products_relevant_smartscounts) b on a.asin=b.asin and a.sys_run_date=b.sys_run_date
     where a.sys_run_date=(select max(sys_run_date) from products_smartscount)
+    and b.asin is null
 """
 
 cursor.execute(query)
