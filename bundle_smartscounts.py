@@ -182,7 +182,7 @@ for subset in brand_product_list:
     # Open Keepa
     driver.get("https://app.smartscout.com/sessions/signin")
 
-    wait = WebDriverWait(driver, 200)
+    wait = WebDriverWait(driver, 30)
     print("login")
     # Login process
     try:
