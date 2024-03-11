@@ -45,7 +45,7 @@ subject_filter = "Keepa.com Account Security Alert and One-Time Login Code"
 display = Display(visible=0, size=(800, 800))
 display.start()
 
-chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
+# chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
 
 # Create a temporary directory for downloads
 with tempfile.TemporaryDirectory() as download_dir:
@@ -176,7 +176,7 @@ for subset in brand_product_list:
     driver.get("https://app.smartscout.com/sessions/signin")
 
     wait = WebDriverWait(driver, 20)
-
+    print("login")
     # Login process
     try:
         username_field = wait.until(
@@ -191,7 +191,7 @@ for subset in brand_product_list:
     except Exception as e:
         # raise Exception
         print("Error during login:", e)
-
+    print("searchterm")
     # Navigate to the seller
     try:
         element = WebDriverWait(driver, 10).until(
