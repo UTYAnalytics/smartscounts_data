@@ -182,7 +182,7 @@ for subset in brand_product_list:
     # Open Keepa
     driver.get("https://app.smartscout.com/sessions/signin")
 
-    wait = WebDriverWait(driver, 20)
+    wait = WebDriverWait(driver, 200)
     print("login")
     # Login process
     try:
@@ -210,7 +210,7 @@ for subset in brand_product_list:
         driver.execute_script("arguments[0].scrollIntoView();", element)
         print("searchtermbutton")
         searchterm_button = wait.until(
-            EC.element_to_be_clickable((By.ID, "navSearchTerms"))
+            EC.element_to_be_clickable((By.XPATH, '//*[@id="navSearchTerms"]'))
         )
         searchterm_button.click()
         time.sleep(2)
