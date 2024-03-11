@@ -27,6 +27,7 @@ from pyvirtualdisplay import Display
 from selenium.webdriver.support.ui import Select
 from urllib.parse import urlparse
 from selenium.webdriver.chrome.service import Service
+import traceback
 
 SUPABASE_URL = "https://sxoqzllwkjfluhskqlfl.supabase.co"
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN4b3F6bGx3a2pmbHVoc2txbGZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIyODE1MTcsImV4cCI6MjAxNzg1NzUxN30.FInynnvuqN8JeonrHa9pTXuQXMp9tE4LO0g5gj0adYE"
@@ -361,5 +362,6 @@ for subset in brand_product_list:
         brand_product_list = cursor.fetchall()
     except Exception as e:
         print(e)
+        traceback.print_exc()
         driver.quit()
         continue
