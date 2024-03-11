@@ -213,6 +213,7 @@ for subset in brand_product_list:
         searchterm_button = wait.until(
             EC.element_to_be_clickable((By.XPATH, '//*[@id="navSearchTerms"]'))
         )
+        print("searchtermbutton_click")
         searchterm_button.click()
         time.sleep(2)
         print("asininput")
