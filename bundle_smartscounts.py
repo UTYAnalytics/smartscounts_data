@@ -201,18 +201,20 @@ for subset in brand_product_list:
     print("searchterm")
     # Navigate to the seller
     try:
+        print("scroll")
         element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located(
                 (By.ID, "navSearchTerms")
             )  # Replace "element_id" with the actual ID of the element
         )
         driver.execute_script("arguments[0].scrollIntoView();", element)
+        print("searchtermbutton")
         searchterm_button = wait.until(
             EC.element_to_be_clickable((By.XPATH, '//*[@id="navSearchTerms"]'))
         )
         searchterm_button.click()
         time.sleep(2)
-
+        print("asininput")
         asin_input = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(
                 (By.CSS_SELECTOR, '.mat-form-field-infix input[formcontrolname="asin"]')
@@ -222,12 +224,14 @@ for subset in brand_product_list:
         asin_input.clear()
         asin_input.send_keys(asin)
         time.sleep(2)
+        print("searchbutton")
         search_button = wait.until(
             EC.element_to_be_clickable((By.XPATH, '//*[@id="btnSearchProducts"]'))
         )
         search_button.click()
         time.sleep(5)
         # Find the "Products" element using CSS Selector
+        print("relevant_products_button")
         relevant_products_button = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(
                 (
@@ -241,6 +245,7 @@ for subset in brand_product_list:
         time.sleep(5)
         # Wait for the button to be clickable
         wait = WebDriverWait(driver, 10)
+        print("excel_button")
         excel_button = wait.until(
             EC.element_to_be_clickable(
                 (By.XPATH, "//span[text()='Excel']/ancestor::button")
@@ -249,7 +254,7 @@ for subset in brand_product_list:
 
         # Click the "Excel" button
         excel_button.click()
-
+        print("image")
         image = wait.until(
             EC.element_to_be_clickable(
                 (By.CSS_SELECTOR, 'img[mattooltip="Export as CSV"]')
