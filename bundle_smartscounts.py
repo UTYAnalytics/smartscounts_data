@@ -259,6 +259,7 @@ for subset in brand_product_list:
         image.click()
         time.sleep(10)
         driver.quit()
+        print("newest_file")
 
         def get_newest_file(directory):
             files = glob.glob(os.path.join(directory, "*"))
