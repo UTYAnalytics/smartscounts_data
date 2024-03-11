@@ -62,12 +62,15 @@ with tempfile.TemporaryDirectory() as download_dir:
         # Define window size here
         "--ignore-certificate-errors",
         "--headless=new",
+        "--disable-gpu",
+        "--no-sandbox",
+        "--disable-dev-shm-usage",
     ]
     chrome_options.add_experimental_option("prefs", prefs)
-    for option in options:
-        chrome_options.add_argument(option)
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_service = Service(os.environ.get("CHROMEDRIVER_PATH"))
+    for option in options:
+        chrome_options.add_argument(option)
 
 
 # Your connection string
