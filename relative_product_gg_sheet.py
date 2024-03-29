@@ -460,9 +460,9 @@ with tempfile.TemporaryDirectory() as download_dir:
         "--window-size=1920,1080",
     ]
     chrome_options.add_experimental_option("prefs", prefs)
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    chrome_service = Service(os.environ.get("CHROMEDRIVER_PATH"))
-    # chrome_service = Service()
+    # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    # chrome_service = Service(os.environ.get("CHROMEDRIVER_PATH"))
+    chrome_service = Service()
     for option in options:
         chrome_options.add_argument(option)
 
